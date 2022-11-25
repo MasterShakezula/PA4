@@ -78,13 +78,15 @@ void main(int argc, char** argv){
 	//Step A. 
 	for(i = 0; i < numOfProducers;i++){
 		//printf("Producer %d is getting spawned!\n", i);
-		pthread_create(producers + i, NULL, produce, (void *)10);
+		pthread_create(producers + i, NULL, produce, (void *)numOfWords*(void*)numOfPasswords/(void *)numOfProducers);
 	}
 	//Step B:
 	for(i = 0; i < numOfProducers;i++)
 		pthread_join(producers[i], NULL);
 	for(i = 0; i < numOfConsumers;i++)
-		pthread_create(consumers + i, NULL, consume, (void *)20);
+		pthread_create(consumers + i, NULL, consume, (void *)numOfWords);
 	for(i = 0; i < numOfConsumers;i++)
 		pthread_join(consumers[i], NULL);
+
+	//for (int j = 0; j < )
 }
