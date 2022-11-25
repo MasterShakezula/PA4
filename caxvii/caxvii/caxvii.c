@@ -10,6 +10,7 @@ hash_table h;
 #define long_rand(n) (((int)rand()<<15 + (int)rand())%n)
 pthread_mutex_t mutex;
 char* words[N];
+
 void *produce(void *args) { 
   for(int i = 0; i < (int)args; i++){
 	int index = rand()%N;
@@ -19,6 +20,7 @@ void *produce(void *args) {
 	printf("produced %s\n", words[index]);
   }
 }
+
 void *consume(void *args) { 
   for(int i = 0; i < (int)args; i++){
 	  int j;
