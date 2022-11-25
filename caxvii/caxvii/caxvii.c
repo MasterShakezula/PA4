@@ -71,18 +71,20 @@ void main(int argc, char** argv){
 		words[i++] = strdup(line);
 	}
 	/*for(int j = 0; j < 10;j++){
+		
 		printf("%s\n", words[rand()%i]);
 	}*/
+
 	//Step A. 
-	for(i = 0; i < 10;i++){
+	for(i = 0; i < numOfProducers;i++){
 		//printf("Producer %d is getting spawned!\n", i);
 		pthread_create(producers + i, NULL, produce, (void *)10);
 	}
 	//Step B:
-	for(i = 0; i < 10;i++)
+	for(i = 0; i < numOfProducers;i++)
 		pthread_join(producers[i], NULL);
-	for(i = 0; i < 5;i++)
+	for(i = 0; i < numOfConsumers;i++)
 		pthread_create(consumers + i, NULL, consume, (void *)20);
-	for(i = 0; i < 5;i++)
+	for(i = 0; i < numOfConsumers;i++)
 		pthread_join(consumers[i], NULL);
 }
