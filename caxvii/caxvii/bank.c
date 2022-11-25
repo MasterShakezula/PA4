@@ -70,22 +70,22 @@ void hash_init(){
 	for(int i = 0; i < HASH_SIZE;i++)
 		hashtable[i] = NULL;
 }
-int main(void) {
-	hash_init();
-  char *fruits[] = {"apple",  "banana",    "orange",    "banana", "kiwi",
-                    "grapes", "srawberry", "blueberry", "orange"};
-  for (int i = 0; i < 9; i++)
-    printf("Adding %s was%s successful!\n", fruits[i],
-           hash_add(fruits[i]) ? "" : " not");
-  char *temp = (char *)malloc(4);
-  for (int i = 0; i < 900; i++) {
-    sprintf(temp, "%d", i);
-    hash_add(temp);
-  }
-  for (int i = 0; i < 850; i++) {
-    sprintf(temp, "%d", i);
-    hash_remove(temp);
-  }
-  print_all();
-  return 0;
-}
+//int main(void) {
+//	hash_init();
+//  char *fruits[] = {"apple",  "banana",    "orange",    "banana", "kiwi",
+//                    "grapes", "srawberry", "blueberry", "orange"};
+//  for (int i = 0; i < 9; i++)
+//    printf("Adding %s was%s successful!\n", fruits[i],
+//           hash_add(fruits[i]) ? "" : " not");
+//  char *temp = (char *)malloc(4);
+//  for (int i = 0; i < 900; i++) {
+//    sprintf(temp, "%d", i);
+//    hash_add(temp);
+//  }
+//  for (int i = 0; i < 850; i++) {
+//    sprintf(temp, "%d", i);
+//    hash_remove(temp);
+//  }
+//  print_all();
+//  return 0;
+//}
