@@ -56,9 +56,11 @@ void main(int argc, char** argv){
 	int numOfPasswords = argv[8];
 	int numOfWords = argv[10];
 
+
+
 	pthread_mutex_init(&mutex, NULL);
-	pthread_t producers[10];
-	pthread_t consumers[5];
+	pthread_t producers[numOfProducers];
+	pthread_t consumers[numOfConsumers];
 	hash_init(&h, 99991);
 	srand(time(NULL));
 	FILE* f = fopen("dict.txt", "r");
