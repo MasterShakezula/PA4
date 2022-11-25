@@ -48,13 +48,14 @@ void *consume(void *args) {
 	}
 	*/
 }
-void main(void){
+void main(int argc, char** argv){
 	int numOfProducers = argv[2];
 	int numOfConsumers = argv[4];
 	char* fileName = (char*)malloc(100);
 	fileName = argv[6];
 	int numOfPasswords = argv[8];
 	int numOfWords = argv[10];
+
 	pthread_mutex_init(&mutex, NULL);
 	pthread_t producers[10];
 	pthread_t consumers[5];
