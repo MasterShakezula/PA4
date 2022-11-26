@@ -22,14 +22,14 @@ void *produce(void *start, void *end) {
 
 void *consume(void *args) { 
   for(int i = 0; i < (int)args; i++){
-	  int j;
+	  int j = rand()%N;
 	  char concat_words[];
     //pthread_mutex_lock(&mutex);
 	//for(j = 0; !hash_remove(&h, words[j]);j++);
     //pthread_mutex_unlock(&mutex);
 	
 	while(1){
-		for(j = 0; !hash_search(h, words[j]);j++);
+		for(j; !hash_search(h, words[j]);j++);
 		pthread_mutex_lock(&mutex);
 		if(hash_remove(&h, words[j])){
 			concat_words[j] = words[j];
