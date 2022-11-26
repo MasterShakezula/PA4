@@ -11,24 +11,13 @@ hash_table h;
 pthread_mutex_t mutex;
 char* words[N];
 
-void *produce(void *args) { 
-  for(int i = 0; i < (int)args; i++){
-	int index = rand()%N;
-    pthread_mutex_lock(&mutex);
-    hash_add(&h, words[index]);
-    pthread_mutex_unlock(&mutex);
-	printf("produced %s\n", words[index]);
+void *produce(void *start, void *end) { 
+  for(int i = start; i <= end; i++){
+	pthread_mutex_lock(&mutex);
+	hash_add(&h, words[i]);
+	pthread_mutex_unlock(&mutex);
+	printf(words[i]); //test
   }
-}
-
-char* concatenate(charwords[],int len,char separator)
-{     char* out = (char)malloc(len 20 + strlen(separator));
-	  out[0] = '/0';
-	  for (int i = 0; i < len; i++)
-	  {       
-		sprintf(out,"%s%s%s",out,separator,words[i]);
-		return out;
-	  } 
 }
 
 void *consume(void *args) { 
@@ -60,6 +49,18 @@ void *consume(void *args) {
 	}
 	*/
 }
+
+char* concatenate(charwords[],int len,char separator)
+{     char* out = (char)malloc(len 20 + strlen(separator));
+	  out[0] = '/0';
+	  for (int i = 0; i < len; i++)
+	  {       
+		sprintf(out,"%s%s%s",out,separator,words[i]);
+		return out;
+	  } 
+}
+
+
 void main(int argc, char** argv){
 	int numOfProducers = argv[2];
 	int numOfConsumers = argv[4];
