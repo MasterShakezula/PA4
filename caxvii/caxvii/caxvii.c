@@ -23,6 +23,7 @@ void *produce(void *start, void *end) {
 void *consume(void *args) { 
   for(int i = 0; i < (int)args; i++){
 	  int j;
+	  char concat_words[];
     //pthread_mutex_lock(&mutex);
 	//for(j = 0; !hash_remove(&h, words[j]);j++);
     //pthread_mutex_unlock(&mutex);
@@ -31,6 +32,12 @@ void *consume(void *args) {
 		for(j = 0; !hash_search(h, words[j]);j++);
 		pthread_mutex_lock(&mutex);
 		if(hash_remove(&h, words[j])){
+			concat_words[j] = words[j];
+			hash_remove(&h, words[j]);
+			
+
+		
+
 			pthread_mutex_unlock(&mutex);
 			break;
 		}
@@ -39,6 +46,7 @@ void *consume(void *args) {
 	
 	
 	printf("consumed %s\n", words[j]);
+	concatenate(concat_words, strlen(concat_words), ',');
   }
   /*while(1){
 		for(j = 0; !hash_search(h, words[j]);j++);
