@@ -72,6 +72,8 @@ char* concatenate(charwords[],int len,char separator)
 void main(int argc, char** argv){
 	int numOfProducers = argv[2];
 	int numOfConsumers = argv[4];
+	int start;
+	int end;
 	char* fileName = (char*)malloc(100);
 	fileName = argv[6];
 	int numOfPasswords = argv[8];
@@ -104,14 +106,14 @@ void main(int argc, char** argv){
 		if (strlen(words) % num_of_words != 0)
 
 		{
-			start(i * (strlen(words) / num_of_prods))
-				end((i + 1) * (strlen(words) / num_of_prods) - 1)
+			start = (i * (strlen(words) / num_of_prods))
+				end = ((i + 1) * (strlen(words) / num_of_prods) - 1)
 
 				if (i == num_of_prods)
 
 				{
-					start(i * (strlen(words) / num_of_prods))
-						end(word.length - 1)
+					start = (i * (strlen(words) / num_of_prods))
+						end = (strlen(words) - 1)
 				}
 		}
 
