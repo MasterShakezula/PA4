@@ -97,9 +97,28 @@ void main(int argc, char** argv){
 	}*/
 
 	//Step A. 
-	for(i = 0; i < numOfProducers;i++){
+	for (i = 0; i < numOfProducers; i++) {
+
+
+
+		if (strlen(words) % num_of_words != 0)
+
+		{
+			start(i * (strlen(words) / num_of_prods))
+				end((i + 1) * (strlen(words) / num_of_prods) - 1)
+
+				if (i == num_of_prods)
+
+				{
+					start(i * (strlen(words) / num_of_prods))
+						end(word.length - 1)
+				}
+		}
+
 		//printf("Producer %d is getting spawned!\n", i);
-		pthread_create(producers + i, NULL, produce, (void *)numOfWords*(void*)numOfPasswords/(void *)numOfProducers);
+		pthread_create(producers + i, NULL, produce, start, end);
+
+
 	}
 	//Step B:
 	for(i = 0; i < numOfProducers;i++)
