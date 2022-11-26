@@ -21,6 +21,16 @@ void *produce(void *args) {
   }
 }
 
+char* concatenate(charwords[],int len,char separator)
+{     char* out = (char)malloc(len 20 + strlen(separator));
+	  out[0] = '/0';
+	  for (int i = 0; i < len; i++)
+	  {       
+		sprintf(out,"%s%s%s",out,separator,words[i]);
+		return out;
+	  } 
+}
+
 void *consume(void *args) { 
   for(int i = 0; i < (int)args; i++){
 	  int j;
