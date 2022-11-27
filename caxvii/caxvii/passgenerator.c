@@ -16,7 +16,7 @@ void *produce(void *start, void *end) {
 	pthread_mutex_lock(&mutex);
 	hash_add(&h, words[i]);
 	pthread_mutex_unlock(&mutex);
-	printf(words[i]); //test
+	printf(words[i]); 
   }
 }
 
@@ -24,9 +24,7 @@ void *consume(void *args) {
   for(int i = 0; i < (int)args; i++){
 	  int j = rand()%N;
 	  char concat_words[];
-    //pthread_mutex_lock(&mutex);
-	//for(j = 0; !hash_remove(&h, words[j]);j++);
-    //pthread_mutex_unlock(&mutex);
+  
 	
 	while(1){
 		for(j; !hash_search(h, words[j]);j++);
@@ -48,14 +46,7 @@ void *consume(void *args) {
 	printf("consumed %s\n", words[j]);
 	concatenate(concat_words, strlen(concat_words), ',');
   }
-  /*while(1){
-		for(j = 0; !hash_search(h, words[j]);j++);
-		pthread_mutex_lock(&mutex);
-		if(hash_remove(&h, words[j]))
-			break;
-		pthread_mutex_unlock(&mutex);
-	}
-	*/
+  
 }
 
 char* concatenate(charwords[],int len,char separator)
@@ -93,12 +84,9 @@ void main(int argc, char** argv){
 		line[strlen(line) - 1] = '\0';
 		words[i++] = strdup(line);
 	}
-	/*for(int j = 0; j < 10;j++){
-		
-		printf("%s\n", words[rand()%i]);
-	}*/
+	
 
-	//Step A. 
+	
 	for (i = 0; i < numOfProducers; i++) {
 
 
@@ -117,12 +105,12 @@ void main(int argc, char** argv){
 				}
 		}
 
-		//printf("Producer %d is getting spawned!\n", i);
+		
 		pthread_create(producers + i, NULL, produce, start, end);
 
 
 	}
-	//Step B:
+	
 	for(i = 0; i < numOfProducers;i++)
 		pthread_join(producers[i], NULL);
 	for(i = 0; i < numOfConsumers;i++)
@@ -130,5 +118,5 @@ void main(int argc, char** argv){
 	for(i = 0; i < numOfConsumers;i++)
 		pthread_join(consumers[i], NULL);
 
-	//for (int j = 0; j < )
+
 }

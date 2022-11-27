@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I. -g -w -pthreads
+CFLAGS=-I. -g -w -pthread
 DEPS = hash.h
 OBJ = passgenerator.o
 %.o: %.c $(DEPS)
