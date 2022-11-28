@@ -84,23 +84,3 @@ void print_all(hash_table h) {
   printf("\n");
 }
 
-int main2(void) {
-	hash_table h;
-	hash_init(&h, 101);
-  char *fruits[] = {"apple",  "banana",    "orange",    "banana", "kiwi",
-                    "grapes", "srawberry", "blueberry", "orange"};
-  for (int i = 0; i < 9; i++)
-    printf("Adding %s was%s successful!\n", fruits[i],
-           hash_add(&h, fruits[i]) ? "" : " not");
-  char *temp = (char *)malloc(4);
-  for (int i = 0; i < 900; i++) {
-    sprintf(temp, "%d", i);
-    hash_add(&h, temp);
-  }
-  for (int i = 0; i < 850; i++) {
-    sprintf(temp, "%d", i);
-    hash_remove(&h, temp);
-  }
-  print_all(h);
-  return 0;
-}
